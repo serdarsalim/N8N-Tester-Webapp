@@ -1,15 +1,17 @@
-# n8n-studio
+# n8n studio
 
-A free, open-source workflow inspector and tester for [n8n](https://n8n.io). Load a workflow, give it an input, hit run — and read the result in a humanely friendly view that n8n itself doesn't provide.
+A free tool for testing and debugging [n8n](https://n8n.io) workflows. Load a workflow, give it an input, hit run, and see what every node did on one screen.
 
-Not affiliated with n8n.io.
+**[Try it](https://n8n-studio.vercel.app)** · Not affiliated with n8n.io
 
-## What it does
+## What you get
 
-- **One-screen debugging.** Workflow graph, every node's resolved parameters (after `{{ }}` expressions evaluate), input, output, verdict — all visible without tab-switching.
-- **Multiple n8n connections.** Save several instances (prod, dev, self-hosted, cloud) and switch between them from the sidebar.
-- **Smart payload inspection.** HTTP body params with stringified JSON-encoded HTML (HubSpot notes, Gmail messages, …) auto-unwrap and render the HTML inline. Long keys don't wrap, values right-align, deep trees flatten.
-- **Re-runnable from past executions.** Replay any historical input against today's workflow.
+- The workflow graph, each node's input, output and resolved parameters, all in one view
+- Several n8n instances saved side by side (prod, dev, cloud, self-hosted)
+- Messy payloads made readable, including HTML hidden inside JSON strings
+- Replay any past execution's input against today's workflow
+
+Your n8n URL and API key stay in your browser. There's no account and no database.
 
 ## Run it
 
@@ -18,23 +20,8 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`, hit the gear icon, paste your n8n URL + API key. Pick a workflow, paste input JSON, hit Run.
-
-## Your data stays on your machine
-
-- **No env vars, no backend, no database.** Your n8n URL and API key live in your browser's `localStorage` and never leave the machine running the tool.
-- **Your data never reaches us.** No account, no database, no error reporting. Your keys, workflows, and execution data stay in your browser.
-- **Anonymous analytics only.** The hosted version uses Vercel's cookieless, privacy-friendly analytics for page-view counts. No personal data, no cross-site tracking. Self-host to opt out of even that.
-- **Self-hosted by default.** The Next.js API routes only proxy from your browser to your own n8n instance, using the URL and key you typed in. They exist to keep your API key out of the browser network tab and avoid CORS — not to ship anything anywhere.
-
-## Stack
-
-- Next.js 16 (App Router) + React 19 + TypeScript
-- Tailwind v4
-- Next.js API routes proxy to n8n (avoids CORS, keeps your API key out of the browser network tab)
-- `localStorage` for settings, theme, and per-workflow preferences
-- No database. Single-user, single-machine by design.
+Open `http://localhost:3000`, click the gear and paste your n8n URL and API key.
 
 ## License
 
-MIT
+[MIT](LICENSE)
